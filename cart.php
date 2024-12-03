@@ -47,6 +47,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         echo json_encode(["status" => "false", "message" => "No records found"]);
     }
 }
-
-
-

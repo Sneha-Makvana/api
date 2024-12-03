@@ -6,14 +6,13 @@ validateToken($authHeader);
 header("Content-Type: application/json");
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-
     $query = "SELECT orders.order_id, product.product_name, product.price, cart.qty, (product.price * cart.qty) AS total_price,
                   orders.order_date
                   FROM orders
                   INNER JOIN cart on orders.cart_id = cart.cart_id
                   INNER JOIN product on cart.product_id = product.product_id";
 
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $query);  
 
     if (mysqli_num_rows($result) > 0) {
         $orders = [];
